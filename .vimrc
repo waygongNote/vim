@@ -163,6 +163,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 			" also need ctags
 			" download here, only need ctags.exe, put in C:/	" http://ctags.sourceforge.net/
 			" http://c9s.blogspot.tw/2007/07/setting-up-ctags-gvim-in-windows.html
+			let Tlist_Ctags_Cmd = 'C:\ctags.exe'
 			" http://bboytaiwan.blogspot.tw/2009/09/windowsvimctagstrinity.html
 			" http://wolfer-reserach.blogspot.tw/2013/04/vim-windows-taglist-exuberant-ctags.html
 		" }}}
