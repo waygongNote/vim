@@ -95,6 +95,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 			" http://www.openfoundry.org/tw/tech-column/2244--vim-plugin
 			" http://legendmohe.net/2013/12/20/%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/
 			" http://bootleq.blogspot.tw/2012/05/neobundle-vim-plugin.html
+			" http://www.openfoundry.org/en/tech-column/2244--vim-plugin
 		" }}}
 	" }}}
 	" add plugins examples {{{
