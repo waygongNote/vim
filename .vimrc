@@ -19,9 +19,12 @@ set fdm=marker	" use "za" to open/close the vim folder
 		if !filereadable(vundle_readme)
 			echo "Install vundle......"
 			echo ""
+			echo ""
 			echo "remember to set your name and email for git"
 			echo "git config user.name \"yourname\""
 			echo "git config user.email \"youremail@abc.com\""
+			echo ""
+			echo ""
 			silent !mkdir -p ~/.vim/bundle/Vundle.vim
 			silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 			let iCanHazVundle=0
