@@ -1,3 +1,5 @@
+" !!! if in Windows, please see here to completely setup Plugin Vundle
+" https://github.com/gmarik/Vundle.vim/wiki/Vundle-for-Windows
 set fdm=marker	" use "za" to open/close the vim folder
 " general settings {{{
 	" set encoding=utf-8
@@ -13,29 +15,37 @@ set fdm=marker	" use "za" to open/close the vim folder
 " }}}
 " manage vim plugins (by Vundle) {{{
 	" auto install settings (1) {{{
-		" cf. http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-		let iCanHazVundle=1
-		let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-		if !filereadable(vundle_readme)
-			echo "Install vundle......"
-			echo ""
-			echo ""
-			echo "remember to set your name and email for git"
-			echo "git config user.name \"yourname\""
-			echo "git config user.email \"youremail@abc.com\""
-			echo ""
-			echo ""
-			silent !mkdir -p ~/.vim/bundle/Vundle.vim
-			silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-			let iCanHazVundle=0
-		endif
+	" ignore...becuase I want to use this setting on windows' gVim, too
+	"	" cf. http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+	"	let iCanHazVundle=1
+	"	let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+	"	if !filereadable(vundle_readme)
+	"		echo "Install vundle......"
+	"		echo ""
+	"		echo ""
+	"		echo "remember to set your name and email for git"
+	"		echo "git config user.name \"yourname\""
+	"		echo "git config user.email \"youremail@abc.com\""
+	"		echo ""
+	"		echo ""
+	"		silent !mkdir -p ~/.vim/bundle/Vundle.vim
+	"		silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	"		let iCanHazVundle=0
+	"	endif
 	" }}}
 	" Vundle settings (1) {{{
 		set nocompatible	" be iMproved, required
 		filetype off	" required
 		" set the runtime path to include Vundle and initialize
-		set rtp+=~/.vim/bundle/Vundle.vim
-		call vundle#begin()
+		" if on Linux {{{
+			set rtp+=~/.vim/bundle/Vundle.vim
+			call vundle#begin()
+		" }}}
+		" if on Windows {{{
+		"	set rtp+=~/vimfiles/bundle/Vundle.vim/
+		"	let path='~/vimfiles/bundle'
+		"	call vundle#begin(path)
+		" }}}
 		" alternatively, pass a path where Vundle should install plugins
 		" call vundle#begin('~/some/path/here')
 		" Keep Plugin commands between vundle#begin/end.
@@ -73,6 +83,8 @@ set fdm=marker	" use "za" to open/close the vim folder
 		" Plugin 'c9s/gsession.vim'	" manage vim sessions	" it will change the directory update time
 									" http://www.openfoundry.org/en/tech-column/2244--vim-plugin
 		Plugin 'thetoast/diff-fold'	" to folding diff (*.patch) files	" see bottom of this file to ignore comments
+		Plugin 'wannesm/wmgraphviz.vim' " to run graphviz
+										" another choise is to use ":!dot –O –Tpng %"	" http://blog.csdn.net/fangkailove/article/details/8969398
 		" to see calendar {{{
 			" Plugin 'itchyny/calendar.vim'	" wait to test (haven't find intro website in chinese, so try it later)
 			" Plugin 'calendar.vim' or 'calendar_vim'	" from: http://www.vim.org/scripts/script.php?script_id=52
@@ -98,16 +110,19 @@ set fdm=marker	" use "za" to open/close the vim folder
 		" Avoid a name conflict with L9
 			"Plugin 'user/L9', {'name': 'newL9'}
 	" }}}
-	" Vundle settings (2) and auto install settings (2) {{{
+	" Vundle settings (2) {{{
 		" All of your Plugins must be added before the following line
 		call vundle#end()
 		filetype plugin indent on
-		if iCanHazVundle==0
-			echo "Install Bundles, please key map error msgs"
-			echo ""
-			:PluginInstall
-			:q
-		endif
+	" }}}
+	" auto install settings (2) {{{
+	" ignore...becuase I want to use this setting on windows' gVim, too
+	"	if iCanHazVundle==0
+	"		echo "Install Bundles, please key map error msgs"
+	"		echo ""
+	"		:PluginInstall
+	"		:q
+	"	endif
 	" }}}
 " }}}
 " additional plugin settings {{{
@@ -135,8 +150,17 @@ set fdm=marker	" use "za" to open/close the vim folder
 		" use <C-V><Tab> to insert real "tab" instead of active Plugin supertab
 	" }}}
 	" taglist {{{
-		" install ctags by "apt-get install ctags" or "yum install ctags" which is needed for Plugin taglist.vim
-		" execute "ctags -R --exclude=.svn" to generate ctags
+		" in Linux {{{
+			" install ctags by "apt-get install ctags" or "yum install ctags" which is needed for Plugin taglist.vim
+			" execute "ctags -R --exclude=.svn" to generate ctags
+		" }}}
+		" in Windows {{{
+			" also need ctags
+			" download here, only need ctags.exe, put in C:/	" http://ctags.sourceforge.net/
+			" http://c9s.blogspot.tw/2007/07/setting-up-ctags-gvim-in-windows.html
+			" http://bboytaiwan.blogspot.tw/2009/09/windowsvimctagstrinity.html
+			" http://wolfer-reserach.blogspot.tw/2013/04/vim-windows-taglist-exuberant-ctags.html
+		" }}}
 	" }}}
 	" vimwiki {{{
 		set nocompatible
