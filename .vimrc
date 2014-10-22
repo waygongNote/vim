@@ -1,5 +1,6 @@
 " !!! if in Windows, please see here to completely setup Plugin Vundle
 " https://github.com/gmarik/Vundle.vim/wiki/Vundle-for-Windows
+" clean defualt vim settings	http://blog.changyy.org/2012/02/vim-vimrc-plugin.html
 set fdm=marker	" use "za" to open/close the vim folder
 " general settings {{{
 	" set encoding=utf-8
