@@ -84,7 +84,8 @@ set fdm=marker	" use "za" to open/close the vim folder
 									" http://www.openfoundry.org/en/tech-column/2244--vim-plugin
 		Plugin 'thetoast/diff-fold'	" to folding diff (*.patch) files	" see bottom of this file to ignore comments
 		Plugin 'wannesm/wmgraphviz.vim' " to run graphviz
-										" another choise is to use ":!dot –O –Tpng %"	" http://blog.csdn.net/fangkailove/article/details/8969398
+										" another choise is to use ":!dot –O –Tpng %"
+										" http://blog.csdn.net/fangkailove/article/details/8969398
 		" to see calendar {{{
 			" Plugin 'itchyny/calendar.vim'	" wait to test (haven't find intro website in chinese, so try it later)
 			" Plugin 'calendar.vim' or 'calendar_vim'	" from: http://www.vim.org/scripts/script.php?script_id=52
