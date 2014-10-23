@@ -13,7 +13,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 	set t_Co=256
 	syntax on
 	colorscheme slate
-	" set guifont=Consolas:h11:cANS " for Windows
+	" set guifont=Consolas:h11:cANSI " for Windows
 	set guifont=monospace\ 14 " for Linux
 	" set guifont=Monaco:h16 " for Mac OSX
 " }}}
