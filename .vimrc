@@ -6,15 +6,15 @@ set fdm=marker	" use "za" to open/close the vim folder
 	" set encoding=utf-8
 	" export LC_ALL='en_US.utf-8'	" default
 	" export LANG='zh_TW.UTF-8'	" default
-	set ls=2
+	set laststatus=2	" ls
 	set mouse=nv
-	set nu
-	set ts=4	" set tabstop=4
+	set number	" nu
+	set tabstop=4	" ts
 	set t_Co=256
 	syntax on
 	colorscheme slate
 	" set guifont=Consolas:h11:cANSI " for Windows
-	set guifont=monospace\ 14 " for Linux
+	set guifont=monospace\ 14 " for Linux (download example: cp monaco.ttf /usr/share/fonts/truetype/; fc-cache -f -v)
 	" set guifont=Monaco:h16 " for Mac OSX
 " }}}
 " manage vim plugins (by Vundle) {{{
