@@ -14,7 +14,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 	syntax on
 	colorscheme slate
 	" set guifont=...	" gfn
-		" set guifont=Consolas:h11:cANSI " for Windows
+		" set guifont=Consolas:h11:cANSI " for Windows	" proppy (smore enough)
 		set guifont=monospace\ 14 " for Linux (download example: cp monaco.ttf /usr/share/fonts/truetype/; fc-cache -f -v)
 		" set guifont=Monaco:h16 " for Mac OSX
 " }}}
