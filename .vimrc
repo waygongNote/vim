@@ -12,7 +12,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 	set ts=4	" set tabstop=4
 	set t_Co=256
 	syntax on
-	" colorscheme default	" default is good enough
+	colorscheme slate
 	" fonts {{{
 		" http://blog.longwin.com.tw/2007/08/programmer_best_font_monaco_2007/
 		" http://c9s.blogspot.tw/2007/08/monaco-font.html
