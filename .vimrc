@@ -13,13 +13,9 @@ set fdm=marker	" use "za" to open/close the vim folder
 	set t_Co=256
 	syntax on
 	colorscheme slate
-	" fonts {{{
-		" http://blog.longwin.com.tw/2007/08/programmer_best_font_monaco_2007/
-		" http://c9s.blogspot.tw/2007/08/monaco-font.html
-		" if on Windows {{{
-			" set guifont=Consolas:h11:cANS
-		" }}}
-	" }}}
+	" set guifont=Consolas:h11:cANS " for Windows
+	set guifont=monospace\ 14 " for Linux
+	" set guifont=Monaco:h16 " for Mac OSX
 " }}}
 " manage vim plugins (by Vundle) {{{
 	" auto install settings (1) {{{
