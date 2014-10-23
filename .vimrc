@@ -13,6 +13,9 @@ set fdm=marker	" use "za" to open/close the vim folder
 	set t_Co=256
 	syntax on
 	" colorscheme default	" default is good enough
+	" if on Windows {{{
+		" set guifont=Consolas:h11:cANS
+	" }}}
 " }}}
 " manage vim plugins (by Vundle) {{{
 	" auto install settings (1) {{{
