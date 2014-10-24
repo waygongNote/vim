@@ -20,26 +20,27 @@ set fdm=marker	" use "za" to open/close the vim folder
 " }}}
 " manage vim plugins (by Vundle) {{{
 	" auto install settings (1) {{{
-	" if on Windows {{{
-		" don't do as below!!
-	" }}}
-	" if on Linux
-		" cf. http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-		let iCanHazVundle=1
-		let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-		if !filereadable(vundle_readme)
-			echo "Install vundle......"
-			echo ""
-			echo ""
-			echo "remember to set your name and email for git"
-			echo "git config user.name \"yourname\""
-			echo "git config user.email \"youremail@abc.com\""
-			echo ""
-			echo ""
-			silent !mkdir -p ~/.vim/bundle/Vundle.vim
-			silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-			let iCanHazVundle=0
-		endif
+		" if on Windows {{{
+			" don't do as below!!
+		" }}}
+		" if on Linux {{{
+			" cf. http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+			let iCanHazVundle=1
+			let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+			if !filereadable(vundle_readme)
+				echo "Install vundle......"
+				echo ""
+				echo ""
+				echo "remember to set your name and email for git"
+				echo "git config user.name \"yourname\""
+				echo "git config user.email \"youremail@abc.com\""
+				echo ""
+				echo ""
+				silent !mkdir -p ~/.vim/bundle/Vundle.vim
+				silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+				let iCanHazVundle=0
+			endif
+		" }}}
 	" }}}
 	" Vundle settings (1) {{{
 		set nocompatible	" be iMproved, required
@@ -132,14 +133,17 @@ set fdm=marker	" use "za" to open/close the vim folder
 		filetype plugin indent on
 	" }}}
 	" auto install settings (2) {{{
-	" ignore...becuase I want to use this setting on windows' gVim, too
-	"	if iCanHazVundle==0
-	"		echo "Install Bundles, please key map error msgs"
-	"		echo ""
-	"		:PluginInstall
-	"		:q
-	"	endif
-	" }}}
+		" if on Windows {{{
+			" don't do as below!!
+		" }}}
+		" if on Linux {{{
+			if iCanHazVundle==0
+			echo "Install Bundles, please key map error msgs"
+			echo ""
+				:PluginInstall
+				:q
+			endif
+		" }}}
 " }}}
 " additional plugin settings {{{
 	" vundle {{{
