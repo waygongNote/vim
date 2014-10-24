@@ -81,6 +81,9 @@ set fdm=marker	" use "za" to open/close the vim folder
 						" http://rickey-nctu.blogspot.tw/2009/02/vim-fuzzyfinder.html
 			" Plugin 'Shougo/unite.vim'	" a little complex, need to study..	http://bootleq.blogspot.tw/2011/07/unitevim.html
 		" }}}
+		" to input faster {{{
+			Plugin 'code_complete'	" mbbill/code_complete
+		" }}}
 		" to manage note {{{
 			Plugin 'tpope/vim-surround'	" (build like(...)) guide: http://blog.eddie.com.tw/2012/06/01/screencast-3-vim-plugins/
 			Plugin 'vimwiki'	" guide: http://gvimmanual.blogspot.tw/p/vimwiki.html
@@ -141,7 +144,9 @@ set fdm=marker	" use "za" to open/close the vim folder
 	" }}}
 	" clang_complete {{{
 		" (unnecessary) make Plugin clang_complete faster
-		let g:clang_use_library=1
+		" let g:clang_use_library=1
+	" }}}
+	" Trinity {{{
 		nmap <F12> :TrinityToggleAll<CR>
 		nmap <F11> :TrinityToggleNERDTree<CR>
 		nmap <F10> :TrinityToggleTagList<CR>
@@ -184,3 +189,4 @@ set fdm=marker	" use "za" to open/close the vim folder
 " manage programs {{{
 	" setup by ask questions	http://bootleq.blogspot.tw/2012/05/neobundle-vim-plugin.html
 " }}}
+" cd ~	" for Windows
