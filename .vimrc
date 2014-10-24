@@ -99,6 +99,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 										" another choise is to use ":!dot –O –Tpng %"
 										" http://blog.csdn.net/fangkailove/article/details/8969398
 		Plugin 'SearchComplete'
+		Plugin 'scrooloose/nerdcommenter'   " make commend for several lines at once
 		" to see calendar {{{
 			" Plugin 'itchyny/calendar.vim'	" wait to test (haven't find intro website in chinese, so try it later)
 			" Plugin 'calendar.vim' or 'calendar_vim'	" from: http://www.vim.org/scripts/script.php?script_id=52
