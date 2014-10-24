@@ -40,7 +40,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 			silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 			let iCanHazVundle=0
 		endif
-	 }}}
+	" }}}
 	" Vundle settings (1) {{{
 		set nocompatible	" be iMproved, required
 		filetype off	" required
