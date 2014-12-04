@@ -1,0 +1,164 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+" myVimrc {{{
+" chinese (UTF-8) {{{
+	let $LANG="zh_TW.UTF-8"
+	set langmenu=zh_tw.utf-8
+	set encoding=utf8
+	"reload menu with UTF-8 encoding
+	source $VIMRUNTIME/delmenu.vim
+	source $VIMRUNTIME/menu.vim
+" }}}
+colorscheme slate
+set fdm=marker	" use "za" to open/close the vim folder
+" general settings {{{
+	" set encoding=utf-8
+	" export LC_ALL='en_US.utf-8'	" default
+	" export LANG='zh_TW.UTF-8'	" default
+	set ls=2
+	set mouse=nv
+	set nu
+	set ts=4	" set tabstop=4
+	set t_Co=256
+	set guifont=Consolas:h11:cANSI " for Windows
+	" set guifont=monospace\ 14 " for Linux
+	" set guifont=Monaco:h16 " for Mac OSX
+	syntax on
+	" colorscheme default	" default is good enough
+" }}}
+" manage vim plugins (by Vundle) {{{
+	" Vundle settings (1) {{{
+		set nocompatible	" be iMproved, required
+		filetype off	" required
+		" set the runtime path to include Vundle and initialize
+		set rtp+=~/vimfiles/bundle/Vundle.vim/
+		let path='~/vimfiles/bundle'
+		call vundle#begin(path)
+		" alternatively, pass a path where Vundle should install plugins
+		" call vundle#begin('~/some/path/here')
+		" Keep Plugin commands between vundle#begin/end.
+		Plugin 'gmarik/Vundle.vim'	" let Vundle manage Vundle, required
+	" }}}
+	" my plugins {{{
+		" Trinity + Source Explorer + Tag List + NERD_tree {{{
+			Plugin 'Trinity'	" same as Plugin 'wesleyche/Trinity'
+			Plugin 'SrcExpl'	" same as Plugin 'wesleyche/SrcExpl'
+			Plugin 'taglist.vim'	" same as Plugin 'vim-scripts/taglist.vim'
+			Plugin 'scrooloose/nerdtree'	" (not sure) wait too long with Plugin 'nerdtree'
+		" }}}
+		" to trace code {{{
+			Plugin 'supertab'	" same as Plugin 'ervandew/supertab'
+			Plugin 'cppcomplete'	" same as Plugin 'vim-scripts/cppcomplete'
+			" Plugin 'Rip-Rip/clang_complete'	" You need Vim 7.3 or higher
+			" Plugin 'Shougo/neocomplete.vim'	" It requires "if_lua" enabled Vim(7.3.885 or above).
+			" Plugin 'Valloric/YouCompleteMe'	" same as Plugin ''	" YouCompleteMe unavailable: requires Vim 7.3.584+
+		" }}}
+		" to debug {{{
+			" Plugin 'larrupingpig/vimgdb-for-vim7.3'
+			" Plugin 'larrupingpig/vimgdb-for-vim7.4'
+		" }}}
+		" to find files {{{
+			" Plugin 'kien/ctrlp.vim'	" conflict with vim's session
+			Plugin 'L9'	" needed by Plugin FuzzyFinder
+			Plugin 'FuzzyFinder'	" http://www.vim.org/scripts/script.php?script_id=1984
+						" http://rickey-nctu.blogspot.tw/2009/02/vim-fuzzyfinder.html
+			" Plugin 'Shougo/unite.vim'	" a little complex, need to study..	http://bootleq.blogspot.tw/2011/07/unitevim.html
+		" }}}
+		" to input faster {{{
+			Plugin 'code_complete'	" mbbill/code_complete
+		" }}}
+		" to manage note {{{
+			Plugin 'tpope/vim-surround'	" (build like(...)) guide: http://blog.eddie.com.tw/2012/06/01/screencast-3-vim-plugins/
+			Plugin 'vimwiki'	" guide: http://gvimmanual.blogspot.tw/p/vimwiki.html
+		" }}}
+		" Plugin 'c9s/gsession.vim'	" manage vim sessions	" it will change the directory update time
+									" http://www.openfoundry.org/en/tech-column/2244--vim-plugin
+		Plugin 'thetoast/diff-fold'	" to folding diff (*.patch) files	" see bottom of this file to ignore comments
+		Plugin 'wannesm/wmgraphviz.vim' " to run graphviz
+		Plugin 'SearchComplete'
+		" to see calendar {{{
+			" Plugin 'itchyny/calendar.vim'	" wait to test (haven't find intro website in chinese, so try it later)
+			" Plugin 'calendar.vim' or 'calendar_vim'	" from: http://www.vim.org/scripts/script.php?script_id=52
+		" }}}
+		" plugin intro website {{{
+			" [Doro One Two Three]	http://rickey-nctu.blogspot.tw/2009/02/make-vim-more-powerful-cont-and-prolog.html
+			" http://www.openfoundry.org/tw/tech-column/2244--vim-plugin
+		" }}}
+	" }}}
+	" Vundle settings (2) and auto install settings (2) {{{
+		" All of your Plugins must be added before the following line
+		call vundle#end()
+		filetype plugin indent on
+	" }}}
+" }}}
+" additional plugin settings {{{
+	" vundle {{{
+		let g:NERDTreeDirArrows=0	" (unimportant) because terminal doesn't support fancy arrow figs
+	" }}}
+	" clang_complete {{{
+		" (unnecessary) make Plugin clang_complete faster
+		" let g:clang_use_library=1
+	" }}}
+	" Trinity {{{
+		nmap <F12> :TrinityToggleAll<CR>
+		nmap <F11> :TrinityToggleNERDTree<CR>
+		nmap <F10> :TrinityToggleTagList<CR>
+		nmap <F9> :TrinityToggleSourceExplorer<CR>
+	" }}}
+	" cppcomplete {{{
+		" use <C-X><C-O> to active Plugin cppcomplete
+	" }}}
+	" diff-fold {{{
+		" use this command to igore the comments in diff-fold Plugin
+		" cat 123.patch |grep -v "^+/\*\|^+ \*\|^+\*\|+$" >./123.patch.shrot
+			" ignore "+/*", "+ *", "+*" in the beginnging
+			" ignore "+" in the end
+	" }}}
+	" supertab {{{
+		" use <C-V><Tab> to insert real "tab" instead of active Plugin supertab
+	" }}}
+	" taglist {{{
+		let Tlist_Ctags_Cmd = 'C:\ctags.exe'
+		" install ctags by "apt-get install ctags" or "yum install ctags" which is needed for Plugin taglist.vim
+		" execute "ctags -R --exclude=.svn" to generate ctags
+	" }}}
+	" vimwiki {{{
+		set nocompatible
+		filetype plugin on
+		" syntax on	" already seted
+		set fileencodings=utf8
+	" }}}
+	" waiting to try... [Doro One Two Three] QuickFix, EasyGrep, Marks, ...
+" }}}
+" }}}
+cd ~	" for Windows
+" do NOT fix it on the TaskBar!! (if you use portable gVim instead of setuped gVim)
+" (it'll catch ~ by windows's, not portable's in GoogleDrive)
+
