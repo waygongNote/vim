@@ -198,3 +198,5 @@ set fdm=marker	" use "za" to open/close the vim folder
 	" setup by ask questions	http://bootleq.blogspot.tw/2012/05/neobundle-vim-plugin.html
 " }}}
 " cd ~	" for Windows
+" do NOT fix it on the TaskBar!!
+" (it'll catch ~ by windows's, not portable's in GoogleDrive)
