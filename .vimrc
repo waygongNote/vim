@@ -61,6 +61,10 @@ set fdm=marker	" use "za" to open/close the vim folder
 		Plugin 'gmarik/Vundle.vim'	" let Vundle manage Vundle, required
 	" }}}
 	" my plugins {{{
+		" time {{{
+			Plugin 'pydave/AsyncCommand'
+			Plugin 'mnick/vim-pomodoro'
+		}}}
 		" Trinity + Source Explorer + Tag List + NERD_tree {{{
 			Plugin 'Trinity'	" same as Plugin 'wesleyche/Trinity'
 			Plugin 'SrcExpl'	" same as Plugin 'wesleyche/SrcExpl'
