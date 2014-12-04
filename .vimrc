@@ -62,6 +62,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 	" }}}
 	" my plugins {{{
 		" time {{{
+			" https://github.com/mnick/vim-pomodoro
 			Plugin 'pydave/AsyncCommand'
 			Plugin 'mnick/vim-pomodoro'
 		}}}
