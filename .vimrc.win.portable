@@ -1,0 +1,30 @@
+" myVimrc {{{
+  " chinese (UTF-8) {{{
+  	let $LANG="zh_TW.UTF-8"
+  	set langmenu=zh_tw.utf-8
+  	set encoding=utf8
+  	"reload menu with UTF-8 encoding
+  	source $VIMRUNTIME/delmenu.vim
+  	source $VIMRUNTIME/menu.vim
+  " }}}
+  colorscheme slate
+  set fdm=marker	" use "za" to open/close the vim folder
+  " general settings {{{
+  	" set encoding=utf-8
+  	" export LC_ALL='en_US.utf-8'	" default
+  	" export LANG='zh_TW.UTF-8'	" default
+ 	  set ls=2
+	  set mouse=nv
+    set nu
+	  set ts=4	" set tabstop=4
+	  set t_Co=256
+	  set guifont=Consolas:h11:cANSI " for Windows
+	  " set guifont=monospace\ 14 " for Linux
+	  " set guifont=Monaco:h16 " for Mac OSX
+	  syntax on
+	  " colorscheme default	" default is good enough
+  " }}}
+  cd ~	" for Windows
+  " do NOT fix it on the TaskBar!!
+  " (it'll catch ~ by windows's, not portable's in GoogleDrive)
+" }}}
