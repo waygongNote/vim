@@ -6,6 +6,7 @@ set fdm=marker	" use "za" to open/close the vim folder
 	" set encoding=utf-8
 	" export LC_ALL='en_US.utf-8'	" default
 	" export LANG='zh_TW.UTF-8'	" default
+	set hlsearch	" highlight when search
 	set laststatus=2	" ls
 	set mouse=nv
 	set number	" nu
